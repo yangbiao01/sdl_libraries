@@ -5,17 +5,18 @@ RECORD_FILE="install_record.txt"
 if [ -f $RECORD_FILE ]; then
     cat $RECORD_FILE | while read line
     do
-        if [ -f ${line} ]; then
-            echo "Delete file ${line}"
-            rm ${line}
+		FILE="/${line}"
+        if [ -f $FILE ]; then
+            echo "Delete file $FILE"
+            rm $FILE
         fi
 
-        if [ -d ${line} ]; then
-            if [ -z "`ls -A ${line}`" ]; then
-                echo "Delete folder ${line}"
-                rm -r ${line}
+        if [ -d $FILE ]; then
+            if [ -z "`ls -A $FILE`" ]; then
+                echo "Delete folder $FILE"
+                rm -r $FILE
 			else
-				echo "Folder not empty. ${line}"
+				echo "Folder not empty. $FILE"
             fi
         fi
     done
