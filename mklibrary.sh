@@ -63,4 +63,7 @@ echo "-- Install to system ..."
 sudo cp -rf $PKG_DIR/lib/* /lib
 sudo cp -rf $PKG_DIR/usr/* /usr/arm-linux-gnueabihf
 
+sudo find $PKG_DIR/lib/ -name "*" > install_record.txt
+sudo find $PKG_DIR/usr/ -name "*" >> install_record.txt
+
 echo "-- Done."
