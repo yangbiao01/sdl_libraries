@@ -11,10 +11,11 @@ if [ -f $RECORD_FILE ]; then
         fi
 
         if [ -d ${line} ]; then
-            echo "Folder: ${line}"
-            if [ `ls -A ${line}|wc -w` ]; then
+            if [ -z "`ls -A ${line}`" ]; then
                 echo "Delete folder ${line}"
                 rm -r ${line}
+			else
+				echo "Folder not empty. ${line}"
             fi
         fi
     done
