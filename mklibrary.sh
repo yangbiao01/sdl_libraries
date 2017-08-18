@@ -1,7 +1,6 @@
 #!/bin/bash
 
 PKG_DIR="pkg"
-ARMHF_DIR="arm-linux-gnueabihf"
 
 echo "-- Clean $PKG_DIR ..."
 if [ -d "$PKG_DIR" ]; then
@@ -34,8 +33,18 @@ echo "-- Extract libaprutil ..."
 dpkg-deb -x libaprutil1_1.5.4-1build1_armhf.deb $PKG_DIR
 dpkg-deb -x libaprutil1-dev_1.5.4-1build1_armhf.deb $PKG_DIR
 
-echo "-- Extract liblog4cxx .."
+echo "-- Extract liblog4cxx ..."
 dpkg-deb -x liblog4cxx10v5_0.10.0-10ubuntu1_armhf.deb $PKG_DIR
 dpkg-deb -x liblog4cxx10-dev_0.10.0-10ubuntu1_armhf.deb $PKG_DIR
+
+echo "-- Do some work ..."
+mv $PKG_DIR/usr/include/arm-linux-gnueabihf/openssl/opensslconf.h $PKG_DIR/usr/include/openssl/
+rm -rf $PKG_DIR/usr/include/arm-linux-gnueabihf
+mv $PKG_DIR/usr/lib/arm-linux-gnueabihf/* $PKG_DIR/usr/lib
+rm -rf $PKG_DIR/usr/lib/arm-linux-gnueabihf
+
+echo "-- Install to system ..."
+sudo cp -rf $PKG_DIR/lib/* /lib
+sudo cp -rf $PKG_DIR/usr/* /usr/arm-linux-gnueabihf
 
 echo "-- Done."
