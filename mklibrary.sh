@@ -37,6 +37,22 @@ echo "-- Extract liblog4cxx ..."
 dpkg-deb -x liblog4cxx10v5_0.10.0-10ubuntu1_armhf.deb $PKG_DIR
 dpkg-deb -x liblog4cxx10-dev_0.10.0-10ubuntu1_armhf.deb $PKG_DIR
 
+echo "-- Extract libplist ..."
+dpkg-deb -x libplist3_1.12-3.1_armhf.deb $PKG_DIR
+dpkg-deb -x libplist-dev_1.12-3.1_armhf.deb $PKG_DIR
+
+echo "-- Extract libusbmuxd ..."
+dpkg-deb -x libusbmuxd4_1.0.10-2ubuntu0.1_armhf.deb $PKG_DIR
+dpkg-deb -x libusbmuxd-dev_1.0.10-2ubuntu0.1_armhf.deb $PKG_DIR
+
+echo "-- Extract libxml2 ..."
+dpkg-deb -x libxml2_2.9.3+dfsg1-1ubuntu0.2_armhf.deb $PKG_DIR
+dpkg-deb -x libxml2-dev_2.9.3+dfsg1-1ubuntu0.2_armhf.deb $PKG_DIR
+
+echo "-- Extract zlib1g ..."
+dpkg-deb -x zlib1g_1%3a1.2.8.dfsg-2ubuntu4.1_armhf.deb $PKG_DIR
+dpkg-deb -x zlib1g-dev_1%3a1.2.8.dfsg-2ubuntu4.1_armhf.deb $PKG_DIR
+
 echo "-- Do some work ..."
 mv $PKG_DIR/usr/include/arm-linux-gnueabihf/openssl/opensslconf.h $PKG_DIR/usr/include/openssl/
 rm -rf $PKG_DIR/usr/include/arm-linux-gnueabihf
