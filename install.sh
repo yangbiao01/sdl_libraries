@@ -34,7 +34,7 @@ dpkg-deb -x packages/libaprutil1-dev_*-1build1_armhf.deb .
 
 echo "-- Extract liblog4cxx ..."
 dpkg-deb -x packages/liblog4cxx10v5_*-10ubuntu1_armhf.deb .
-dpkg-deb -x packages/liblog4cxx10-dev_*-10ubuntu1_armhf.deb .
+dpkg-deb -x packages/liblog4cxx-dev_*-*_armhf.deb .
 
 echo "-- Extract libplist ..."
 dpkg-deb -x packages/libplist3_*-*_armhf.deb .
