@@ -52,6 +52,10 @@ echo "-- Extract zlib1g ..."
 dpkg-deb -x packages/zlib1g_*_armhf.deb .
 dpkg-deb -x packages/zlib1g-dev_*_armhf.deb .
 
+echo "-- Extract libicu ..."
+dpkg-deb -x packages/libicu55_*-*_armhf.deb .
+dpkg-deb -x packages/libicu-dev_*-*_armhf.deb .
+
 echo "-- Do some work ..."
 mv ./usr/include/arm-linux-gnueabihf/openssl/opensslconf.h ./usr/include/openssl/
 rm -rf ./usr/include/arm-linux-gnueabihf
