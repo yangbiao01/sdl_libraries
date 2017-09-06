@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo apt-get install gcc-arm-linux-gnueabihf 
+sudo apt-get installg++-arm-linux-gnueabihf
+
 if [ -d "lib" ]; then
     rm -rf lib
 fi
